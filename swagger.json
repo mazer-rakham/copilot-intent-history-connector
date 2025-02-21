@@ -1,0 +1,121 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "AI Search History API",
+        "description": "Processes conversation_id, conversation, index_to_search, fields, and semanticConfiguration from the request body to return AI search results.",
+        "version": "1.0.1",
+        "contact": {
+            "name": "Your Name",
+            "url": "https://www.example.com",
+            "email": "youremail@example.com"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "<your-hostname>.com",
+    "basePath": "/api",
+    "schemes": [
+        "https"
+    ],
+    "tags": [
+        {
+            "name": "search_history",
+            "description": "Operations related to AI search history"
+        }
+    ],
+    "paths": {
+        "/ai_search_history": {
+            "get": {
+                "tags": [
+                    "search_history"
+                ],
+                "operationId": "getAiSearchHistoryRequestDetails",
+                "summary": "Get AI Search History Request Details",
+                "description": "Returns the details of the request received by the AI Search History endpoint.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved request details",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "method": "GET",
+                                "headers": {},
+                                "params": {},
+                                "body": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "search_history"
+                ],
+                "operationId": "postAiSearchHistoryRequestDetails",
+                "summary": "Post AI Search History Request",
+                "description": "Processes conversation_id, conversation, index_to_search, fields, and semanticConfiguration from the request body to return AI search results.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Request payload containing conversation_id, conversation, index_to_search, fields, and semanticConfiguration.",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "conversation_id": {
+                                    "type": "string"
+                                },
+                                "conversation": {
+                                    "type": "string"
+                                },
+                                "index_to_search": {
+                                    "type": "string"
+                                },
+                                "fields": {
+                                    "type": "string",
+                                    "description": "Fields to be used in vectorQueries."
+                                },
+                                "semanticConfiguration": {
+                                    "type": "string",
+                                    "description": "Semantic configuration for search."
+                                }
+                            },
+                            "required": [
+                                "conversation_id",
+                                "conversation",
+                                "index_to_search"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns AI search results based on conversation history and inferred intent.",
+                        "schema": {
+                            "type": "object",
+                            "description": "Any JSON object representing the search results."
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request payload or missing parameters."
+                    },
+                    "500": {
+                        "description": "Error processing request."
+                    }
+                }
+            }
+        }
+    }
+}

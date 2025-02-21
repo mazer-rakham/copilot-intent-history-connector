@@ -1,0 +1,9 @@
+The following is a chat history between a user and an assistant. Based on the conversation, infer the user's current intent:
+
+Chat History: 
+{chat_history}
+
+New Query:
+{input_query}
+
+Analyze and determine the user's intent from the given information.

@@ -1,0 +1,28 @@
+{
+    "schema": 1,
+    "type": "completion",
+    "description": "Analyze user queries to determine intent.",
+    "execution_settings": {
+      "default": {
+        "max_tokens": 10,
+        "temperature": 0.2
+      },
+      "gpt-4": {
+        "model_id": "gpt-4-1106-preview",
+        "max_tokens": 10,
+        "temperature": 0.2
+      }
+    },
+    "input_variables": [
+      {
+        "name": "input_query",
+        "description": "The user's search query.",
+        "required": true
+      },
+      {
+        "name": "chat_history",
+        "description": "The chat history.",
+        "required": true
+      }
+    ]
+  }
